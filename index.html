@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hello World in 10 Languages</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #1e293b;
+      --accent: #38bdf8;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: radial-gradient(circle at top, #1e293b, var(--bg));
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 3rem 1rem;
+    }
+    h1 {
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      margin: 0 0 0.5rem;
+      text-align: center;
+    }
+    p.subtitle {
+      color: var(--muted);
+      margin: 0 0 2.5rem;
+      text-align: center;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      width: 100%;
+      max-width: 640px;
+      display: grid;
+      gap: 0.75rem;
+    }
+    li {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+      transition: transform 0.15s ease;
+    }
+    li:hover { transform: translateY(-2px); }
+    .lang {
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+    .greeting {
+      font-size: 1.15rem;
+      text-align: right;
+    }
+    footer {
+      margin-top: 2.5rem;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>Hello, World!</h1>
+  <p class="subtitle">The classic greeting in 10 languages</p>
+  <ul id="greetings"></ul>
+  <footer>hello-world-10</footer>
+  <script>
+    const greetings = [
+      ["English", "Hello, world!"],
+      ["Spanish", "¡Hola, mundo!"],
+      ["French", "Bonjour, le monde !"],
+      ["German", "Hallo, Welt!"],
+      ["Italian", "Ciao, mondo!"],
+      ["Portuguese", "Olá, mundo!"],
+      ["Japanese", "こんにちは、世界！"],
+      ["Chinese", "你好，世界！"],
+      ["Russian", "Привет, мир!"],
+      ["Arabic", "مرحبا بالعالم!"],
+    ];
+    const list = document.getElementById("greetings");
+    for (const [lang, greeting] of greetings) {
+      const li = document.createElement("li");
+      const langSpan = document.createElement("span");
+      langSpan.className = "lang";
+      langSpan.textContent = lang;
+      const greetingSpan = document.createElement("span");
+      greetingSpan.className = "greeting";
+      greetingSpan.textContent = greeting;
+      li.append(langSpan, greetingSpan);
+      list.append(li);
+    }
+  </script>
+</body>
+</html>
