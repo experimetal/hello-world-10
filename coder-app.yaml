@@ -1,0 +1,6 @@
+# Coder deploy manifest for hello-world-10
+# Static site: a single index.html served over HTTP.
+type: static
+# The runner exports PORT; serve the repo root on it.
+run: python3 -m http.server "$PORT"
+port: 8000
